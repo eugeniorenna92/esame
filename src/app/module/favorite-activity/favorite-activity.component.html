@@ -1,0 +1,38 @@
+<table class="table container mt-3">
+  <thead>
+    <tr>
+      <th scope="col">Attività</th>
+      <th scope="col">Difficoltà</th>
+      <th scope="col">Tipo</th>
+      <th scope="col">Partecipanti</th>
+      <th scope="col">Prezzo</th>
+      <th scope="col">Link</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody *ngIf="activityList; else activity">
+    <tr *ngFor="let activity of activityList" [ngClass]="color(activity)">
+      <th>{{ activity.activity }}</th>
+      <td>{{ activity.accessibility }}</td>
+      <td>{{ activity.type }}</td>
+      <td>{{ activity.participants }}</td>
+      <td>{{ activity.price }}</td>
+      <td *ngIf="activity?.link; else link">{{ activity?.link }}</td>
+      <td>
+        <button class="btn btn-info w-25" (click)="remove(activity)">
+          <strong>X</strong>
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<ng-template #activity>
+  <tr>
+    <td>Nessun' attività preferita</td>
+  </tr>
+</ng-template>
+
+<ng-template #link>
+  <td>Nessun link disponibile</td>
+</ng-template>

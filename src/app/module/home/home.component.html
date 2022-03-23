@@ -1,0 +1,11 @@
+<app-navbar></app-navbar>
+<section class="d-flex justify-content-center align-items-start">
+  <app-generate-activity
+    class="w-50"
+    (favorited)="addFav($event)"
+  ></app-generate-activity>
+  <app-favorite-activity
+    class="w-50"
+    [activityList]="activityList"
+  ></app-favorite-activity>
+</section>

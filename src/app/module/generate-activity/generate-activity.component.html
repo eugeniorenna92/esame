@@ -1,0 +1,45 @@
+<div class="container mt-3 d-flex flex-column align-content-center">
+  <button class="btn btn-primary" (click)="generate()">Generate</button>
+  <div
+    class="container p-3 d-flex flex-column align-content-center border"
+    *ngIf="activity"
+  >
+    <table class="table">
+      <thead>
+        <tr>
+          <th colspan="2">
+            <h3>
+              {{ activity.activity }}
+            </h3>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Difficoltà:</strong></td>
+          <td>{{ activity.accessibility }}</td>
+        </tr>
+        <tr>
+          <td><strong>Tipo:</strong></td>
+          <td>{{ activity.type }}</td>
+        </tr>
+        <tr></tr>
+        <tr>
+          <td><strong>Partecipanti:</strong></td>
+          <td>{{ activity.participants }}</td>
+        </tr>
+        <tr>
+          <td><strong>Prezzo:</strong></td>
+          <td>{{ activity.price }}</td>
+        </tr>
+        <tr *ngIf="activity?.link">
+          <td><strong>Link:</strong></td>
+          <td>{{ activity.link }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <button class="btn btn-warning" (click)="favorite(activity)">
+      Salva preferito
+    </button>
+  </div>
+</div>
